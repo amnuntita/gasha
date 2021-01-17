@@ -1,10 +1,15 @@
 import "./App.css";
-import React, { useState } from "react";
-import { Row, Container, Image } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Container} from "react-bootstrap";
 
 import Gasha from "./component/gashapon/gashapon.js";
 
 function App() {
+
+  useEffect(() => {
+    document.title = "Fruit Gasha"
+  },[])
+
   const credit = (
     <div className="credit">
       Icons made by{" "}
@@ -20,6 +25,7 @@ function App() {
       </a>
     </div>
   );
+
   return (
     <div className="App">
       <Container>
