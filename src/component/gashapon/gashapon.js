@@ -7,6 +7,8 @@ import items from "../../store/items.js";
 import prob from "../../store/prob.js";
 import dict from "../../store/dict.js";
 
+import play from './play_function.js';
+
 const Gasha = () => {
   const [result, setResult] = useState(""); //result of gashapon (fruit+rate)
   const [working, setWorking] = useState(false); //working status to disable buttons
@@ -14,29 +16,7 @@ const Gasha = () => {
   const [turn, setTurn] = useState(0); //counting turns for playing 10 times
   const [isLoading, setLoad] = useState(false);
 
-  const levels = Object.keys(prob);
-
-  //gashapon functions - random for a level and then for a fruit
-  const play = () => {
-    let rand = Math.random();
-    let i;
-    for (i = 0; i < levels.length; i++) {
-      let level = levels[i]; //random for levels
-      if (rand < prob[level]) {
-        return randFruit(level);
-      }
-      rand -= prob[level];
-    }
-  };
-
-  const randFruit = (lvl) => {
-    const fruits = items[lvl]; // random for fruit in a level by selecting index
-    const min = 0;
-    const max = fruits.length;
-    const rand_index = Math.floor(Math.random() * (max - min) + min);
-    return { fruit: fruits[rand_index], level: lvl };
-  };
-
+  
   //onClick function
   async function onClick(t) {
     setWorking(true);
@@ -61,6 +41,7 @@ const Gasha = () => {
         setResult(res);
         setTurn(turn_now); //counting current turn for 10 plays
         dict[res.level][res.fruit] += 1; //dict for storing number of collected fruits by type and rate
+        console.log(dict[res.level][res.fruit])
         turn_now++;
       });
       if(t === 10){

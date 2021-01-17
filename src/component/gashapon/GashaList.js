@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {Row} from "react-bootstrap";
+import { Row,Image } from "react-bootstrap";
 
 const GashaList = (props) => {
   const [dict, setDict] = useState({});
   const [isOpen, setOpen] = useState(false);
   const levels = ["R", "SR", "SSR"];
 
-  let FontAwesome = require('react-fontawesome');
+  let FontAwesome = require("react-fontawesome");
 
   useEffect(() => {
     setDict(props.dict);
@@ -22,7 +22,16 @@ const GashaList = (props) => {
               <Row>
                 <h5>{l}</h5>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {JSON.stringify(dict[l])}
+                {Object.keys(dict[l]).map(
+                  (f) => {
+                    return(
+                    <p style={{marginRight:2}}>
+                      <Image className="icon" src={"/assets/images/"+f.toLowerCase()+".png"}/> 
+                     {dict[l][f]}
+                    </p>
+                    )
+                  }
+                )}
               </Row>
             );
           })}
@@ -32,16 +41,20 @@ const GashaList = (props) => {
   };
 
   return (
-    <div style={{marginLeft:"1em"}}>
+    <div style={{ marginLeft: "1em" }}>
       <Row>
         <h5>Items you've collected</h5>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <FontAwesome className="fa-chevron-circle-down mt-1" size="lg" name="toggle" onClick={()=>setOpen(!isOpen)} 
-        style={{color:"#1ABC9C "}}/>
+        <FontAwesome
+          className="fa-chevron-circle-down mt-1"
+          size="lg"
+          name="toggle"
+          onClick={() => setOpen(!isOpen)}
+          style={{ color: "#1ABC9C " }}
+        />
       </Row>
-      <br/>
+      <br />
       {isOpen ? byLevel() : <p></p>}
-      
     </div>
   );
 };
