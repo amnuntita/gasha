@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Button, Image,Spinner } from "react-bootstrap";
+import { Row, Image,Spinner } from "react-bootstrap";
 
 import GashaList from "./GashaList.js";
 
@@ -52,8 +52,7 @@ const Gasha = () => {
     for (i = 0; i < t; i++) {
       let res = play();
       setLoad(true)
-      console.log(1)
-      await sleep(1000)
+      await sleep(1500)
       .then(() => {
         setLoad(false)
         return 0
@@ -65,7 +64,7 @@ const Gasha = () => {
         turn_now++;
       });
       if(t === 10){
-        await sleep(2000) //wait to display result before rest loading 
+        await sleep(1000) //wait to display result before rest loading 
       }
     }
     setWorking(false);
@@ -78,12 +77,12 @@ const Gasha = () => {
 
   const Result = () => {
 
-    const text = result ? "You've got " + result.fruit + " ("+result.level+")": "Let's get started"
+    const text = result ? "You've got " + result.fruit + " ("+result.level+")": "Let's get started!"
     const src = result ? result.fruit.toLowerCase()+".png": "011-fruits.png"
 
     if(isLoading){
-      return(<div style={{paddingTop:"23vh"}} className="result">
-         <Spinner animation="grow" size="xl" variant="success"/>
+      return(<div style={{paddingTop:"23vh"}}>
+         <Spinner animation="grow" size="xl" variant="warning"/>
       </div>)
     }
     else{
@@ -107,12 +106,12 @@ const Gasha = () => {
       {Result()}
       </div>
       <Row style={{ justifyContent: "center" }}>
-        <Button className="btn" onClick={() => onClick(1)} disabled={working}>
+        <button className="myButton" onClick={() => onClick(1)} disabled={working}>
           1 time
-        </Button>
-        <Button className="btn" onClick={() => onClick(10)} disabled={working}>
+        </button>
+        <button className="myButton" onClick={() => onClick(10)} disabled={working}>
           10 times
-        </Button>
+        </button>
       </Row>
       <GashaList dict={dict} />
     </div>

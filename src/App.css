@@ -14,13 +14,38 @@
   justify-content: center;
 }
 
-.btn{
+.myButton{
+  width: 100px;
   margin-top: 5px;
   margin-bottom: 20px;
   margin-left: 10px;
+  padding: 10px;
+  background-color: #27AE60;
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
+
+.myButton:hover{
+  background-color: #52BE80;
+  color: white;
+}
+
+.myButton:focus{
+  outline: 0;
+}
+
+.myButton:disabled{
+  background-color: #D4EFDF;
 }
 
 .result{
   height: 50vh;
   margin-top: 20px;
+}
+
+.icon{
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
 }

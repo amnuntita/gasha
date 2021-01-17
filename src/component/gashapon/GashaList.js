@@ -34,9 +34,10 @@ const GashaList = (props) => {
   return (
     <div style={{marginLeft:"1em"}}>
       <Row>
-        Items you've collected
+        <h5>Items you've collected</h5>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <FontAwesome className="fa-chevron-circle-down mt-1" size="lg" name="toggle" onClick={()=>setOpen(!isOpen)} />
+        <FontAwesome className="fa-chevron-circle-down mt-1" size="lg" name="toggle" onClick={()=>setOpen(!isOpen)} 
+        style={{color:"#1ABC9C "}}/>
       </Row>
       <br/>
       {isOpen ? byLevel() : <p></p>}
