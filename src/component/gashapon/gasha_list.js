@@ -18,13 +18,13 @@ const GashaList = (props) => {
         <div>
           {levels.map((l) => {
             return (
-              <Row>
+              <Row key={l}>
                 <h5>{l}</h5>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {Object.keys(dict[l]).map(
                   (f) => {
                     return(
-                    <p style={{marginRight:2}}>
+                    <p style={{marginRight:2}} key={f.toLowerCase()}>
                       <Image className="icon" src={"/assets/images/"+f.toLowerCase()+".png"}/> 
                      {dict[l][f]} 
                     </p>
