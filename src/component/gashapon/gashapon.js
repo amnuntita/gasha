@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Image, Spinner } from "react-bootstrap";
 
-import GashaList from "./GashaList.js";
+import GashaList from "./gasha_list.js";
 
 import dict from "../../store/dict.js";
 import deco from "../../store/deco.js";
@@ -9,8 +9,8 @@ import deco from "../../store/deco.js";
 import play from "./play_function.js";
 
 const Gasha = () => {
-  const [result, setResult] = useState(false); //result of gashapon (fruit+rate)
-  const [working, setWorking] = useState(false); //working status to disable buttons
+  const [result, setResult] = useState(false); //result of gashapon (object with fruit and level attribute)
+  const [working, setWorking] = useState(false); //working status to disable buttons while playing
   const [select, setSelect] = useState(false); //play 1 time or 10 time
   const [turn, setTurn] = useState(0); //counting turns for playing 10 times
   const [isLoading, setLoad] = useState(false);
@@ -36,10 +36,9 @@ const Gasha = () => {
           turn_now++;
         });
       if (t === 10) {
-        await sleep(1000); //wait to display result before rest loading
+        await sleep(1000); //wait to display result before next loading
       }
     }
-    //setResult(false)
     setWorking(false);
   }
 
@@ -82,6 +81,8 @@ const Gasha = () => {
       );
     }
   };
+
+
 
   return (
     <div style={{ justifyContent: "center" }}>

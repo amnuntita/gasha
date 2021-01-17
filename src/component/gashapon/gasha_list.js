@@ -14,7 +14,6 @@ const GashaList = (props) => {
 
   const byLevel = () => {
     if (dict) {
-      //console.log(lvl, dict[lvl])
       return (
         <div>
           {levels.map((l) => {
@@ -27,7 +26,7 @@ const GashaList = (props) => {
                     return(
                     <p style={{marginRight:2}}>
                       <Image className="icon" src={"/assets/images/"+f.toLowerCase()+".png"}/> 
-                     {dict[l][f]}
+                     {dict[l][f]} 
                     </p>
                     )
                   }
