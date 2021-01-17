@@ -1,21 +1,23 @@
-const dict = {
+const deco = {
     "R": {
-      "Banana":0,
-      "Lemon":0,
-      "Mango":0,
-      "Orange":0,
-      "Grapes":0,
-      "Durian":0,
-      "Blueberries":0,
-      "Mangosteen":0,
+      "Banana":"#FEF9E7",
+      "Lemon":"#FCF3CF",
+      "Mango":"#FCF3CF",
+      "Orange":"#FAD7A0",
+      "Grapes":"#E8DAEF",
+      "Durian":"#FEF9E7",
+      "Blueberries":"#EBF5FB",
+      "Mangosteen":"#E8DAEF",
     },
     "SR": {
-      "Avocado":0,
-      "Coconut":0,
-      "Papaya":0,
-      "Watermelon":0,
-      "Strawberries":0,
-      "Pineapple":0,
+      "Avocado":"#EAFAF1",
+      "Coconut":"#E9F7EF",
+      "Papaya":"#FAE5D3",
+      "Watermelon":"#FADBD8",
+      "Strawberries":"#FADBD8",
+      "Pineapple":"#FCF3CF",
     },
-    "SSR": {"Apple":0, "Kivi":0, "Cherries":0, "Pear":0},
+    "SSR": {"Apple":"#F9EBEA", "Kivi":"#E9F7EF", "Cherries":"#F2D7D5", "Pear":"#A3E4D7"},
   };
+
+  export default deco;
