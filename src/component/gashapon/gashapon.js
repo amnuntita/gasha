@@ -19,7 +19,6 @@ const Gasha = () => {
   async function onClick(t) {
     setWorking(true);
     let i;
-    let turn_now = 1;
 
     for (i = 0; i < t; i++) {
       let res = play();
@@ -31,9 +30,8 @@ const Gasha = () => {
         })
         .then(() => {
           setResult(res);
-          setTurn(turn_now); //counting current turn for 10 plays
+          setTurn(i+1); //counting current turn for 10 plays
           dict[res.level][res.fruit] += 1; //dict for storing number of collected fruits by type and rate
-          turn_now++;
         });
       if (t === 10) {
         await sleep(1000); //wait to display result before next loading
